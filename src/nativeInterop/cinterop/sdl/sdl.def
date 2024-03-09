@@ -1,0 +1,10 @@
+headers = SDL3/SDL.h stdlib.h time.h
+entryPoint = SDL_main
+
+headerFilter = SDL3/SDL*.h stdlib.h time.h
+
+compilerOpts = -D_POSIX_SOURCE
+compilerOpts.linux = -D_REENTRANT
+
+linkerOpts.mingw = -Lbuild/libs -lSDL3 -luser32 -lkernel32 -lgdi32
+linkerOpts.linux = -Lbuild/libs -lSDL3 -L/usr/lib64 -L/usr/lib/x86_64-linux-gnu -L/lib/x86_64-linux-gnu/
